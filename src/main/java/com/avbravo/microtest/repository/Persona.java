@@ -5,6 +5,7 @@
 package com.avbravo.microtest.repository;
 
 import java.io.Serializable;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -12,10 +13,15 @@ import lombok.Data;
  * @author avbravo
  */
 @Data
+@Builder
 public class Persona implements Serializable {
     private String name;
 
     public Persona() {
+    }
+
+    public Persona(String name) {
+        this.name = name;
     }
     
     

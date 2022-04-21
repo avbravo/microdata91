@@ -5,6 +5,7 @@
 package com.avbravo.microtest.controller;
 
 //import jakarta.annotation.PostConstruct;
+import com.avbravo.microtest.repository.AdrressRepo;
 import com.avbravo.microtest.repository.PersonaRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
@@ -30,8 +31,10 @@ private static final long serialVersionUID = 1L;
 
     @Inject
     PageController pageController;
-    @Inject
-PersonaRepository oerPersonaRepository;
+//    @Inject
+//PersonaRepository oerPersonaRepository;
+//   @Inject
+//    AdrressRepo adreessRepo;
     /**
      * Creates a new instance of IndexController
      */

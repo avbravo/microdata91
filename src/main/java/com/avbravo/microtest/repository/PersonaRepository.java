@@ -4,12 +4,11 @@
  */
 package com.avbravo.microtest.repository;
 
-import com.avbravo.jmoordbcdi.Repository;
 import com.avbravo.jmoordbcdi.RepositoryDecorator;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
+
+//import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
-import java.io.Serializable;
 
 /**
  *

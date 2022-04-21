@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.avbravo</groupId>
-    <artifactId>microtest</artifactId>
+    <artifactId>microjakarta91</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>microjakarta91</name>
@@ -13,11 +13,16 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <jakartaee>9.1.0</jakartaee>
+        <jakartaee>9.0.0</jakartaee>
+        <!--<jakartaee>9.1.0</jakartaee>-->
         <!--<version.payara>6.2021.1.Alpha1</version.payara>-->
-
-        <version.payara.micro>6.2022.1.Alpha2</version.payara.micro>
-           <version.payara>6.2022.1.Alpha2</version.payara>
+       
+    <version.payara.micro>6.2022.1.Alpha2</version.payara.micro>
+        <version.payara>6.2022.1.Alpha2</version.payara>
+<!--        <version.payara>5.2022.2</version.payara>
+        <version.payara.micro>5.2022.2</version.payara.micro>-->
+        
+        <jakarta.nosql.version>1.0.0-b2</jakarta.nosql.version>
         <!--<version.payara.micro>6.2021.1.Alpha1</version.payara.micro>-->
     </properties>
     
@@ -34,7 +39,7 @@
         <dependency>
             <groupId>fish.payara.api</groupId>
             <artifactId>payara-bom</artifactId>
-            <version>6.2022.1.Alpha2</version>
+            <version>${version.payara}</version>
             <type>pom</type>
         </dependency>
         
@@ -51,16 +56,23 @@
                        
         -->
         <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+     
+     
+        <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>3.0.1</version>
+            <version>4.0.0</version>
                 
         </dependency>
         
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.faces</artifactId>
-            <version>3.0.2</version>
+            <version>4.0.0-M1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -70,27 +82,31 @@
             <scope>provided</scope>            
         </dependency>
         <dependency>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <version>5.0.0-RC1</version>
+        </dependency>
+
+        
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
             <type>jar</type>
         </dependency>
-<!--        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>jmoordbcdi</artifactId>
-            <version>1.0-1</version>
-        </dependency>-->
-<!--        <dependency>
-            <groupId>com.jmoordbgenesis</groupId>
-            <artifactId>jmoordbgenesis</artifactId>
-            <version>0.1</version>
-        </dependency>-->
+        
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jmoordbcdi</artifactId>
             <version>1.0-1</version>
         </dependency>
+        
+        <!--
+                        Jakarta NoSQL
+        -->
     </dependencies>
+    
     
     <build>
         <finalName>microjakarta91</finalName>

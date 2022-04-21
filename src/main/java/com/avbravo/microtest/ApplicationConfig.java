@@ -21,7 +21,7 @@ import jakarta.security.enterprise.authentication.mechanism.http.LoginToContinue
                 useForwardToLogin = false
             )
 )
-@FacesConfig
+//@FacesConfig
 @ApplicationScoped
 public class ApplicationConfig {
     
