@@ -33,8 +33,8 @@ private static final long serialVersionUID = 1L;
     PageController pageController;
 //    @Inject
 //PersonaRepository oerPersonaRepository;
-//   @Inject
-//    AdrressRepo adreessRepo;
+   @Inject
+    AdrressRepo adreessRepo;
     /**
      * Creates a new instance of IndexController
      */
