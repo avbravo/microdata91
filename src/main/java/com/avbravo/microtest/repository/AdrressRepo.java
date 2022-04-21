@@ -16,7 +16,7 @@ import java.util.Optional;
 @ApplicationScoped
 @Named
 //public class AdrressRepo implements Repo1<Persona,String> {
-public class AdrressRepo implements Repo1<Persona,String> {
+public class AdrressRepo implements Repo<Persona,String> {
 
     @Override
     public <S extends Persona> S save(S s) {
