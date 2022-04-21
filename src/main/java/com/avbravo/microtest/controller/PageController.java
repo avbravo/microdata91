@@ -17,6 +17,7 @@ import lombok.Data;
 @ApplicationScoped
 @Data
 public class PageController {
+    private static final long serialVersionUID = 1L;
 private String name="ARos";
     private String data = "Ok data";
     /**

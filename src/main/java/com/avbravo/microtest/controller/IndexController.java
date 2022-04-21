@@ -5,6 +5,7 @@
 package com.avbravo.microtest.controller;
 
 //import jakarta.annotation.PostConstruct;
+import com.avbravo.microtest.repository.PersonaRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.SessionScoped;
@@ -23,13 +24,14 @@ import lombok.Data;
 @SessionScoped
 @Data
 public class IndexController implements Serializable {
-
+private static final long serialVersionUID = 1L;
     private String name = "";
 
 
     @Inject
     PageController pageController;
-
+    @Inject
+PersonaRepository oerPersonaRepository;
     /**
      * Creates a new instance of IndexController
      */
@@ -39,6 +41,7 @@ public class IndexController implements Serializable {
     @PostConstruct
     public void init() {
         try {
+            name= "";
             System.out.println("Init....");
         } catch (Exception e) {
             showInfo(e.getLocalizedMessage());
