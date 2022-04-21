@@ -8,14 +8,17 @@
     <name>microjakarta91</name>
     
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>9.1.0</jakartaee>
-        <version.payara>6.2021.1.Alpha1</version.payara>
-        <version.payara.micro>6.2021.1.Alpha1</version.payara.micro>
+        <!--<version.payara>6.2021.1.Alpha1</version.payara>-->
+
+        <version.payara.micro>6.2022.1.Alpha2</version.payara.micro>
+           <version.payara>6.2022.1.Alpha2</version.payara>
+        <!--<version.payara.micro>6.2021.1.Alpha1</version.payara.micro>-->
     </properties>
     
     <dependencies>
@@ -25,7 +28,15 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
-        
+        <!-- 
+      plugin de payara mucro
+        -->
+        <dependency>
+            <groupId>fish.payara.api</groupId>
+            <artifactId>payara-bom</artifactId>
+            <version>6.2022.1.Alpha2</version>
+            <type>pom</type>
+        </dependency>
         
         <dependency>
             <groupId>org.primefaces</groupId>
@@ -64,10 +75,20 @@
             <version>1.18.22</version>
             <type>jar</type>
         </dependency>
+<!--        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jmoordbcdi</artifactId>
+            <version>1.0-1</version>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>com.jmoordbgenesis</groupId>
+            <artifactId>jmoordbgenesis</artifactId>
+            <version>0.1</version>
+        </dependency>-->
     </dependencies>
     
     <build>
-        <finalName>microtest</finalName>
+        <finalName>microjakarta91</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -116,6 +137,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>fish.payara.maven.plugins</groupId>
                 <artifactId>payara-micro-maven-plugin</artifactId>
@@ -134,6 +156,7 @@
                 </configuration>
                 <version>1.4.0</version>
             </plugin>
+            
         </plugins>
     </build>
 </project>
