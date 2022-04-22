@@ -5,15 +5,18 @@
 package com.avbravo.microtest.controller;
 
 //import jakarta.annotation.PostConstruct;
-import com.avbravo.microtest.repository.AdrressRepo;
+import com.avbravo.jmoordbcdi.util.ClassUtil;
+import com.avbravo.jmoordbcdi.util.FacesMessagesUtil;
+import com.avbravo.microtest.model.Persona;
+import com.avbravo.microtest.repository.PersonaRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.SessionScoped;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -24,17 +27,20 @@ import lombok.Data;
 @SessionScoped
 @Data
 public class IndexController implements Serializable {
-private static final long serialVersionUID = 1L;
-    private String name = "";
-
-
+    // <editor-fold defaultstate="collapsed" desc="field">
+   private List<Persona> personaList = new ArrayList<>();
+    private Persona persona = new Persona();
+    private static final long serialVersionUID = 1L;
+    private String mensaje = "";
+    // </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="@Inject">
     @Inject
     PageController pageController;
+    @Inject
+    PersonaRepository perrsonaRepository;
 //    @Inject
-//PersonaRepository oerPersonaRepository;
-   @Inject
-    AdrressRepo adreessRepo;
-   
+//    AdrressRepo adreessRepo;
+    // </editor-fold>
 
     /**
      * Creates a new instance of IndexController
@@ -45,10 +51,11 @@ private static final long serialVersionUID = 1L;
     @PostConstruct
     public void init() {
         try {
-            name= "";
+            mensaje = "";
             System.out.println("Init....");
+            personaList = new ArrayList<>();
         } catch (Exception e) {
-            showInfo(e.getLocalizedMessage());
+            FacesMessagesUtil.showInfo(e.getLocalizedMessage(), ClassUtil.nameOfClassAndMethod());
         }
 
     }
@@ -60,53 +67,37 @@ private static final long serialVersionUID = 1L;
     }
 
 //    public String getName() {
-//        return name;
+//        return mensaje;
 //    }
 //
-//    public void setName(String name) {
-//        this.name = name;
+//    public void setName(String mensaje) {
+//        this.mensaje = mensaje;
 //    }
-
     public String saludar() {
         try {
-            
-       
-        System.out.println("Hola: " + name + " ... ");
-        String text = "Hola : "+name + " pageController{"+pageController.getName()+" "+pageController.getData()+"} ";
-            System.out.println("Text "+text);
-        showInfo(text);
-        
-         } catch (Exception e) {
-             showError("saludar()" +e.getLocalizedMessage());
+
+            String text = "Bienvenido : " + mensaje + " @Inject pageController{" + pageController.getView() + "} ";
+            FacesMessagesUtil.showInfo(text, "saludar()");
+
+        } catch (Exception e) {
+            FacesMessagesUtil.showInfo(e.getLocalizedMessage(), ClassUtil.nameOfClassAndMethod());
         }
         return "";
     }
 
-    public void addMessage(FacesMessage.Severity severity, String summary, String detail) {
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(severity, summary, detail));
-    }
-
-    public void showInfo(String content) {
-        addMessage(FacesMessage.SEVERITY_INFO, content, "info");
-    }
-
-    public void showWarn(String content) {
-        addMessage(FacesMessage.SEVERITY_WARN, content, "warn");
-    }
-
-    public void showError(String content) {
-        addMessage(FacesMessage.SEVERITY_ERROR, content, "message");
-    }
-
-    public void showSticky() {
-        FacesContext.getCurrentInstance().addMessage("sticky-key", new FacesMessage(FacesMessage.SEVERITY_INFO, "Sticky Message", "Message Content"));
-    }
-
-    public void showMultiple() {
-        addMessage(FacesMessage.SEVERITY_INFO, "Message 1", "Message Content");
-        addMessage(FacesMessage.SEVERITY_INFO, "Message 2", "Message Content");
-        addMessage(FacesMessage.SEVERITY_INFO, "Message 3", "Message Content");
+    public String save() {
+        try {
+//
+//            System.out.println("Hola: " + mensaje + " ... ");
+//            String text = "Hola : " + mensaje + " pageController{" + pageController.getName() + " " + pageController.getData() + "} ";
+//            System.out.println("Text " + text);
+//            showInfo(text);
+            perrsonaRepository.save(persona);
+            FacesMessagesUtil.showInfo("Se guardo el registro", "Mensaje");
+        } catch (Exception e) {
+            FacesMessagesUtil.showInfo(e.getLocalizedMessage(), ClassUtil.nameOfClassAndMethod());
+        }
+        return "";
     }
 
 }

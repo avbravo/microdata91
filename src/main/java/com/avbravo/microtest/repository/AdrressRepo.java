@@ -4,6 +4,8 @@
  */
 package com.avbravo.microtest.repository;
 
+
+import com.avbravo.microtest.model.Persona;
 import com.avbravo.jmoordbcdi.mapping.Repo;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;

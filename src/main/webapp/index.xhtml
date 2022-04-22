@@ -6,27 +6,81 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+        <style type="text/css">
+            p {
+                line-height: 1.5;
+                margin: 0;
+            }
+        </style>
     </h:head>
     <h:body>
         <f:view contentType="text/html"> 
             <h:form id="form" prependId="false">
                 <p:growl id="growl"/>
-                <p:panelGrid columns="2">
-               
-                 <p:outputLabel value="name="/>
-                 <p:inputText value="#{indexController.name}"/>
-                 <f:facet name="footer">
-                     
+                <p:card style="width: 25rem; margin-bottom: 2em">
+                    <f:facet name="title">
+                        Jmoordbgenesis
+                    </f:facet>
 
-                     <p:commandButton value="Ok" action="#{indexController.saludar()}"
-                                      update=":form:growl"/>
-                                      </f:facet>
-                                  
-                </p:panelGrid>
-                
+                    <p>Ingrese mensaje
+                        <p:inputText value="#{indexController.mensaje}"/>
+                    </p>
+                    <f:facet name="footer">
+                        <p:commandButton value="Saludar" 
+                                         action="#{indexController.saludar()}"
+                                         styleClass="ui-button-secondary" style="margin-left: .5em"
+                                         update=":form:growl"/>
+                    </f:facet>
+
+                </p:card>
+
+                <p:card style="width: 25em">
+                    <f:facet name="header">
+                        <img alt="user header" src="../../resources/demo/images/usercard.png"/>
+                    </f:facet>
+                    <f:facet name="title">
+                        Jmoordb
+                    </f:facet>
+                    <f:facet name="subtitle">
+                        Persona Crud
+                    </f:facet>
+
+                    <p>Ingrese los datos de la persona
+                        y ejecute las operaciones!</p>
+                    <p> <p:outputLabel value="Id"/>
+                        <p:inputText value="#{indexController.persona.id}"/></p>
+                    <p> <p:outputLabel value="name"/>
+                        <p:inputText value="#{indexController.persona.name}"/></p>
+
+                    <f:facet name="footer">
+                        <p:commandButton icon="pi pi-check" value="Save"
+                                         action="#{indexController.saludar()}"
+                                         styleClass="ui-button-secondary" style="margin-left: .5em"
+                                         update=":form:growl"/>
+                        <p:commandButton icon="pi pi-check" value="Delete" styleClass="ui-button-danger" style="margin-left: .5em"/>
+                        <p:commandButton icon="pi pi-check" value="Find"/>
+                        <p:commandButton icon="pi pi-times" value="Cancel" styleClass="ui-button-secondary" style="margin-left: .5em"/>
+                    </f:facet>
+                </p:card>
+
+                <p:card style="width: 25em">
+                    <p:dataTable value="#{indexController.personaList}"
+                                 var="item" id="datatable">
+                    <p:column headerText="id">
+                        <p:outputLabel value="#{item.id}"/>
+                    </p:column>
+                    <p:column headerText="name">
+                        <p:outputLabel value="#{item.name}"/>
+                    </p:column>
+                    </p:dataTable>
+
+                </p:card>
+
+
+
             </h:form>
         </f:view>
-       
+
     </h:body>
 </html>
 

@@ -1,7 +1,7 @@
 package com.avbravo.microtest.resources;
 
 import com.avbravo.microtest.repository.AdrressRepo;
-import com.avbravo.microtest.repository.Persona;
+import com.avbravo.microtest.model.Persona;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

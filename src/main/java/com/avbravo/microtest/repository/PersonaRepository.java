@@ -4,7 +4,8 @@
  */
 package com.avbravo.microtest.repository;
 
-import com.avbravo.jmoordbcdi.RepositoryDecorator;
+import com.avbravo.microtest.model.Persona;
+import com.avbravo.jmoordbcdi.decorator.RepositoryDecorator;
 import jakarta.enterprise.context.ApplicationScoped;
 
 //import jakarta.enterprise.context.ApplicationScoped;

@@ -12,37 +12,21 @@ import lombok.Data;
  *
  * @author avbravo
  */
-@Named(value = "viewController")
+@Named(value = "pageController")
 //@RequestScoped
 @ApplicationScoped
 @Data
 public class PageController {
     private static final long serialVersionUID = 1L;
-private String name="ARos";
-    private String data = "Ok data";
+private String view="page";
+
     /**
      * Creates a new instance of PageController
      */
     public PageController() {
-        data ="Hola mundo";
+       
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getData() {
-//        return data;
-//    }
-//
-//    public void setData(String data) {
-//        this.data = data;
-//    }
-//    
-    
+
     
 }

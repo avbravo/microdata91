@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.avbravo</groupId>
     <artifactId>microjakarta91</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-2</version>
     <packaging>war</packaging>
     <name>microjakarta91</name>
     
@@ -13,8 +13,8 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <jakartaee>9.0.0</jakartaee>
-        <!--<jakartaee>9.1.0</jakartaee>-->
+        <jakartaee>9.1.0</jakartaee>
+
         <!--<version.payara>6.2021.1.Alpha1</version.payara>-->
        
     <version.payara.micro>6.2022.1.Alpha2</version.payara.micro>
@@ -55,7 +55,7 @@
         <!--
                        
         -->
-        <dependency>
+<!--        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>5.0.0</version>
@@ -85,7 +85,7 @@
             <groupId>jakarta.el</groupId>
             <artifactId>jakarta.el-api</artifactId>
             <version>5.0.0-RC1</version>
-        </dependency>
+        </dependency>-->
 
         
         <dependency>
@@ -96,21 +96,29 @@
         </dependency>
         
 
-<!--        <dependency>
+<!--    <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>jmoordbcdi</artifactId>
-            <version>1.0-1</version>
+            <version>1.0-4</version>
         </dependency>-->
-        <dependency>
-	    <groupId>com.github.avbravo</groupId>
-	    <artifactId>jmoordbcdi</artifactId>
-	    <version>1.0-1</version>
-	</dependency>
         
         <!--
                         Jakarta NoSQL
         -->
-       
+        
+        
+        
+        
+<!--    <dependency>
+	    <groupId>com.github.avbravo</groupId>
+	    <artifactId>jmoordbcdi</artifactId>
+	    <version>1.0-4</version>
+	</dependency>-->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jmoordbcdi</artifactId>
+            <version>1.0-4</version>
+        </dependency>
     </dependencies>
     
     
