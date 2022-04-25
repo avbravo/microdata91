@@ -65,6 +65,7 @@
 
                 <p:card style="width: 25em">
                     <p:dataTable value="#{indexController.personaList}"
+                                 lazy="false"
                                  var="item" id="datatable">
                     <p:column headerText="id">
                         <p:outputLabel value="#{item.id}"/>
